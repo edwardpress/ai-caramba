@@ -14,17 +14,17 @@ export class AppComponent {
   title = 'ai-caramba-dashboard';
 
   ngOnInit() {
-    this.chatGPT
-      .getQuery(
-        'Can you say "hello world"?'
-      )
-      .subscribe((res) => {
-        console.log('GPT RESPONSE', res);
+    // this.chatGPT
+    //   .getQuery(
+    //     'Can you say "hello world"?'
+    //   )
+    //   .subscribe((res) => {
+    //     console.log('GPT RESPONSE', res);
 
-        // JSON schema, the type of graph to use
-        // put into graph
-        // switch (graph type) get appropirate dummyData 
+    //     // JSON schema, the type of graph to use
+    //     // put into graph
+    //     // switch (graph type) get appropirate dummyData 
 
-      });
+    //   });
   }
 }
