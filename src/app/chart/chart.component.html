@@ -1,0 +1,31 @@
+<ejs-chart *ngIf="type !== 'Pie'" height="162px" [primaryXAxis]="xAxis">
+  <e-series-collection>
+    <e-series
+      [dataSource]="dataSource"
+      [type]="type"
+      [xName]="xName"
+      [yName]="yName"
+    >
+    </e-series>
+  </e-series-collection>
+</ejs-chart>
+
+<ejs-accumulationchart
+  *ngIf="type == 'Pie'"
+  [enableAnimation]="true"
+  height="162px"
+  [legendSettings]="legendSettings"
+>
+  <e-accumulation-series-collection>
+    <e-accumulation-series
+      [dataSource]="dataSource"
+      [xName]="xName"
+      [yName]="yName"
+      [radius]="radius"
+      [name]="name"
+      [dataLabel]="dataLabel"
+      [innerRadius]="innerRadius"
+    >
+    </e-accumulation-series>
+  </e-accumulation-series-collection>
+</ejs-accumulationchart>
