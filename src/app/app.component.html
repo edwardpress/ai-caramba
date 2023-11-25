@@ -1,4 +1,23 @@
-
 <app-dashboard></app-dashboard>
 <router-outlet></router-outlet>
-<app-ai-chat></app-ai-chat>
+
+<button (click)="showChat()" ejs-fab id="fab">
+  <mat-icon fontIcon="account_tree"></mat-icon>
+</button>
+
+<ejs-dialog
+  (overlayClick)="onOverlayClick()"
+  [position]="position"
+  *ngIf="showDialog"
+  id="dialog"
+  #ejDialog
+  [showCloseIcon]="true"
+  [target]="targetElement"
+  width="400px"
+  header="AI Caramba"
+  [isModal]="true"
+>
+  <ng-template #content>
+    <app-ai-chat></app-ai-chat>
+  </ng-template> </ejs-dialog
+>`

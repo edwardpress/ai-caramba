@@ -7,7 +7,7 @@ import { CommonModule } from '@angular/common';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AiChatComponent } from './ai-chat/ai-chat.component';
 import { TextBoxModule } from '@syncfusion/ej2-angular-inputs';
-import { FabModule } from '@syncfusion/ej2-angular-buttons';
+import { ButtonAllModule, FabModule } from '@syncfusion/ej2-angular-buttons';
 import { ListViewModule } from '@syncfusion/ej2-angular-lists';
 import {
   ChartAllModule,
@@ -24,6 +24,8 @@ import {
   DataLabelService,
   LineSeriesService,
 } from '@syncfusion/ej2-angular-charts';
+import { MatIconModule } from '@angular/material/icon';
+import { DialogModule } from '@syncfusion/ej2-angular-popups';
 
 @NgModule({
   imports: [
@@ -36,8 +38,16 @@ import {
     TextBoxModule,
     FabModule,
     ListViewModule,
+    MatIconModule,
+    ButtonAllModule,
+    DialogModule,
   ],
-  declarations: [AppComponent, DashboardComponent, ChartComponent, AiChatComponent],
+  declarations: [
+    AppComponent,
+    DashboardComponent,
+    ChartComponent,
+    AiChatComponent,
+  ],
   bootstrap: [AppComponent],
   providers: [
     CategoryService,

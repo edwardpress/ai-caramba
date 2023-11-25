@@ -8,14 +8,20 @@
   >
     <e-panels>
       <e-panel
-        *ngFor="let panel of samplePanels"
+        *ngFor="let panel of panels; index as i"
         [sizeX]="panel.sizeX ? panel.sizeX : 3"
         [sizeY]="panel.sizeY ? panel.sizeY : 1"
         [row]="panel.row"
         [col]="panel.col"
       >
         <ng-template #header>
-          <div>{{ panel.title }}</div>
+          <div>
+            {{ panel.title }}
+
+            <button ejs-button class="delete" (click)="deleteDashboard(i)">
+              <mat-icon fontIcon="delete"></mat-icon>
+            </button>
+          </div>
         </ng-template>
         <ng-template #content>
           <app-chart
