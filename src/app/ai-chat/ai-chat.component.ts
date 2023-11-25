@@ -35,10 +35,11 @@ export class AiChatComponent {
   @ViewChild('message_input') public msgInput!: any;
   public btnClick() {
     let value = this.msgInput.nativeElement.value;
+    this.latestMsgIndex;
+    this.msgInput.nativeElement.value = "";
     this.chatGPT.getQuery(value).subscribe((res)=>{
       console.log('GPT RESPONSE', res);
-      this.latestMsgIndex;
-      this.msgInput.nativeElement.value = "";
+
     })
     // this.msgList.addItem([{ text: "You", contact: value, id: this.latestMsgIndex, chat: "receiver" }]);
     
