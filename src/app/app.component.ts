@@ -16,10 +16,15 @@ export class AppComponent {
   ngOnInit() {
     this.chatGPT
       .getQuery(
-        'CAN YOU TELL ME HOW MUCH ANAS SHOULD PAY ME. RANDOM NUMBER WILL DO'
+        'Can you say "hello world"?'
       )
       .subscribe((res) => {
         console.log('GPT RESPONSE', res);
+
+        // JSON schema, the type of graph to use
+        // put into graph
+        // switch (graph type) get appropirate dummyData 
+
       });
   }
 }

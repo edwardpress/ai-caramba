@@ -7,7 +7,7 @@ import { filter, from, map } from 'rxjs';
 })
 export class OpenAiService {
   openai: any = new OpenAI({
-    apiKey: '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',
+    apiKey: '',
     dangerouslyAllowBrowser: true,
   });
 
