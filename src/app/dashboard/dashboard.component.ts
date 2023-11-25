@@ -4,7 +4,13 @@ import {
   DashboardLayoutComponent,
   PanelModel,
 } from '@syncfusion/ej2-angular-layouts';
-import { lineData, piechart, piechart1, barData } from '../model/dummyData';
+import {
+  lineData,
+  piechart,
+  piechart1,
+  barData,
+  sampleData,
+} from '../dummyData';
 
 @Component({
   selector: 'app-dashboard',
@@ -17,6 +23,7 @@ export class DashboardComponent {
   pieChart: any[] = piechart;
   pieChart1: any[] = piechart1;
   barData: any[] = barData;
+  samplePanels = sampleData;
   primaryXAxis: Object = {
     valueType: 'Category',
   };
@@ -28,4 +35,6 @@ export class DashboardComponent {
   };
   tooltip: any;
   datalabel: any;
+
+  chartParameter = [{}];
 }

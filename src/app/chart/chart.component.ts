@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { chartSetting } from '../model/chartModel';
 
 @Component({
   selector: 'app-chart',
@@ -7,14 +8,15 @@ import { CommonModule } from '@angular/common';
   styleUrl: './chart.component.scss',
 })
 export class ChartComponent {
-  @Input() type: string = '';
-  @Input() dataSource: Object[] = [];
-  @Input() xName = '';
-  @Input() yName = '';
-  @Input() xAxis = {};
-  @Input() name = '';
-  @Input() radius = '70%';
-  @Input() dataLabel = {};
-  @Input() legendSettings = {};
-  @Input() innerRadius = '20%';
+  @Input() chartSetting!: chartSetting;
+
+  public zoom?: Object;
+
+  ngOnInit() {
+    this.zoom = {
+      enableMouseWheelZooming: true,
+      enablePinchZooming: true,
+      enableSelectionZooming: true,
+    };
+  }
 }
