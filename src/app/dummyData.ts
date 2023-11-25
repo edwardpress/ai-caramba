@@ -203,6 +203,22 @@ export const sampleData: panelData[] = [
   },
 ];
 
+export const somedummy = {
+  title: 'Bar',
+  type: 'Bar',
+  chartSetting: {
+    dataSource: barData,
+    xName: 'x',
+    yName: 'y',
+    xAxis: {
+      valueType: 'Category',
+    },
+  },
+  description: 'Bar Data',
+  row: 0,
+  col: 0,
+};
+
 // this.primaryXAxis = {
 //   interval: 1, valueType: 'Category'
 // };

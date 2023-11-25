@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { OpenAI } from 'openai';
-import { filter, from, map } from 'rxjs';
+import { filter, from, map, of } from 'rxjs';
+import { somedummy } from '../dummyData';
 
 @Injectable({
   providedIn: 'root',
@@ -26,6 +27,14 @@ export class OpenAiService {
           data.choices && data.choices.length > 0 && data.choices[0].message
       ),
       map((data) => data.choices[0].message.content)
+    );
+  }
+
+  getFakeGPTQuery() {
+    return of(
+      'BRO THIS IS FROM CHATGPT SCHEMA MAN ' +
+        JSON.stringify(somedummy) +
+        'YOOO'
     );
   }
 }
