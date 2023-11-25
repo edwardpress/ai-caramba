@@ -8,7 +8,7 @@ import { somedummy } from '../dummyData';
 })
 export class OpenAiService {
   openai: any = new OpenAI({
-    apiKey: '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',
+    apiKey: '',
     dangerouslyAllowBrowser: true,
   });
 
@@ -93,7 +93,8 @@ export class OpenAiService {
               "type": "object",
               "properties": {
                 "valueType": {
-                  "type": "string"
+                  "type": "string",
+                  "enum": ["Category", "Numeric", "DateTime"]
                 }
               },
               "required": [
