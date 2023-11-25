@@ -25,6 +25,7 @@ import {
   LineSeriesService,
 } from '@syncfusion/ej2-angular-charts';
 import { MatIconModule } from '@angular/material/icon';
+import { DialogModule } from '@syncfusion/ej2-angular-popups';
 
 @NgModule({
   imports: [
@@ -39,6 +40,7 @@ import { MatIconModule } from '@angular/material/icon';
     ListViewModule,
     MatIconModule,
     ButtonAllModule,
+    DialogModule,
   ],
   declarations: [
     AppComponent,

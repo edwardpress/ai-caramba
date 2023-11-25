@@ -1,21 +1,46 @@
-<ejs-listview id='List' #list [dataSource]='chatData' headerTitle="Chat" showHeader="true" width="350px"
-    [fields]='fields'>
-    <ng-template #template let-data="">
-        <div class="settings" *ngIf="data.chat!='receiver' then senderTemplate else receiverTemplate "></div>
-        <ng-template #senderTemplate>
-            <div id="content">
-                <div class="name">{{data.text}}</div>
-                <div id="info">{{data.contact}}</div>
-            </div>
-        </ng-template>
-
-        <ng-template #receiverTemplate>
-            <div id="content1">
-                <div class="name1">{{data.text}}</div>
-                <div id="info1">{{data.contact}}</div>
-            </div>
-        </ng-template>
+<ejs-listview
+  id="List"
+  #list
+  [dataSource]="chatData"
+  headerTitle="Chat"
+  showHeader="true"
+  width="500px"
+  height="1000px"
+  [fields]="fields"
+>
+  <ng-template #template let-data="">
+    <div
+      class="settings"
+      *ngIf="
+        data.chat != 'receiver';
+        then senderTemplate;
+        else receiverTemplate
+      "
+    ></div>
+    <ng-template #senderTemplate>
+      <div id="content">
+        <div class="name">{{ data.text }}</div>
+        <div id="info">{{ data.contact }}</div>
+      </div>
     </ng-template>
+
+    <ng-template #receiverTemplate>
+      <div id="content1">
+        <div class="name1">{{ data.text }}</div>
+        <div id="info1">{{ data.contact }}</div>
+      </div>
+    </ng-template>
+  </ng-template>
 </ejs-listview>
-<div><input #message_input id="name" class="e-input" type="text" placeholder="Type your message" />
-<button ejs-button id="btn" style="float:left" (click)="btnClick()">Send</button> </div>
+<div>
+  <input
+    #message_input
+    id="name"
+    class="e-input"
+    type="text"
+    placeholder="Type your message"
+  />
+  <button ejs-button id="btn" style="float: left" (click)="btnClick()">
+    Send
+  </button>
+</div>
