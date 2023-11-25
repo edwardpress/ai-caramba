@@ -49,7 +49,8 @@ export class AiChatComponent {
       this.msgInput.nativeElement.value = ''; // clear input message
       this.addUserMessage(value);
 
-      this.chatGPT.getFakeGPTQuery(value).subscribe((res) => {
+      this.chatGPT.getQuery(value).subscribe((res) => {
+        console.log('RAW CHAT GPT res:\n\n', res);
         if (res.includes('{') && res.includes('}')) {
           const firstIndex = res.indexOf('{');
           const lastIndex = res.lastIndexOf('}');

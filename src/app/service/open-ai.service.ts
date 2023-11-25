@@ -8,7 +8,7 @@ import { somedummy } from '../dummyData';
 })
 export class OpenAiService {
   openai: any = new OpenAI({
-    apiKey: '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',
+    apiKey: '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',
     dangerouslyAllowBrowser: true,
   });
 
@@ -127,7 +127,7 @@ export class OpenAiService {
       ]
     }
     var stringB = JSON.stringify(b);
-    var asJ = "\n\nOutput only JSON"
+    var asJ = "\n\nOutput only JSON";
 
     var decoratedMessage = first + stringA + mid +message + mid2 + stringB + asJ;
 
@@ -135,7 +135,7 @@ export class OpenAiService {
     const params = {
       model: 'gpt-3.5-turbo-1106',
       messages: [{ role: 'user', content: decoratedMessage }],
-      temperature: 0,
+      temperature: 1,
     };
 
     return from(this.openai.chat.completions.create(params)).pipe(
