@@ -45,6 +45,8 @@ export class AiChatComponent {
     let value = this.msgInput.nativeElement.value;
     this.latestMsgIndex++;
     this.msgInput.nativeElement.value = ''; // clear input message
+    this.addUserMessage(value);
+
     this.chatGPT.getFakeGPTQuery(value).subscribe((res) => {
       if (res.includes('{') && res.includes('}')) {
         const firstIndex = res.indexOf('{');
@@ -61,7 +63,6 @@ export class AiChatComponent {
 
       this.addAIMessage(res);
     });
-    this.addUserMessage(value);
   }
   constructor(
     private chatGPT: OpenAiService,

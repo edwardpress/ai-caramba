@@ -11,9 +11,10 @@
   *ngIf="showDialog"
   id="dialog"
   #ejDialog
-  [showCloseIcon]="false"
+  [showCloseIcon]="true"
   [target]="targetElement"
   width="400px"
+  header="AI Caramba"
   [isModal]="true"
 >
   <ng-template #content>

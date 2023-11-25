@@ -13,21 +13,41 @@
       class="settings"
       *ngIf="
         data.chat != 'receiver';
-        then senderTemplate;
-        else receiverTemplate
+        then receiverTemplate;
+        else senderTemplate
       "
     ></div>
     <ng-template #senderTemplate>
-      <div id="content">
-        <div class="name">{{ data.text }}</div>
-        <div id="info">{{ data.contact }}</div>
+      <div class="dialogContainer">
+        <div id="content">
+          <div class="name">{{ data.text }}</div>
+          <div id="info">{{ data.contact }}</div>
+        </div>
+
+        <div id="image" *ngIf="data.avatar != ''">
+          <span class="e-avatar img1 e-avatar-circle"></span>
+        </div>
+        <div id="image" *ngIf="data.avatar == ''">
+          <span class="img1 e-avatar e-avatar-circle"> </span>
+        </div>
       </div>
     </ng-template>
 
     <ng-template #receiverTemplate>
-      <div id="content1">
-        <div class="name1">{{ data.text }}</div>
-        <div id="info1">{{ data.contact }}</div>
+      <div class="dialogContainer">
+        <div id="image" *ngIf="data.avatar != ''">
+          <span class="e-avatar img1 e-avatar-circle"></span>
+        </div>
+        <div id="image" *ngIf="data.avatar == ''">
+          <span class="img1 e-avatar e-avatar-circle">
+            <img src="./robot.jpg" />
+          </span>
+        </div>
+
+        <div id="content1">
+          <div class="name1">{{ data.text }}</div>
+          <div id="info1">{{ data.contact }}</div>
+        </div>
       </div>
     </ng-template>
   </ng-template>
@@ -39,6 +59,7 @@
     class="e-input"
     type="text"
     placeholder="Type your message"
+    (keyup.enter)="btnClick()"
   />
   <button ejs-button id="btn" style="float: left" (click)="btnClick()">
     Send
