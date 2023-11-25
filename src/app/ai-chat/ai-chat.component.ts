@@ -55,13 +55,17 @@ export class AiChatComponent {
           const firstIndex = res.indexOf('{');
           const lastIndex = res.lastIndexOf('}');
           const json = res.substring(firstIndex, lastIndex + 1);
-          const newGraph = JSON.parse(json);
+          try {
+            const newGraph = JSON.parse(json);
+            this.dashboard.updateGraph(newGraph);
+  
+            res =
+              res.substring(0, firstIndex) +
+              res.substring(lastIndex + 1, res.length);
+          } catch (SyntaxError) {
+            res = "Sorry, I didn't understand";
+          }
 
-          this.dashboard.updateGraph(newGraph);
-
-          res =
-            res.substring(0, firstIndex) +
-            res.substring(lastIndex + 1, res.length);
         }
 
         this.addAIMessage(res);
