@@ -43,26 +43,29 @@ export class AiChatComponent {
   @ViewChild('message_input') public msgInput!: any;
   public btnClick() {
     let value = this.msgInput.nativeElement.value;
-    this.latestMsgIndex++;
-    this.msgInput.nativeElement.value = ''; // clear input message
-    this.addUserMessage(value);
 
-    this.chatGPT.getFakeGPTQuery(value).subscribe((res) => {
-      if (res.includes('{') && res.includes('}')) {
-        const firstIndex = res.indexOf('{');
-        const lastIndex = res.lastIndexOf('}');
-        const json = res.substring(firstIndex, lastIndex + 1);
-        const newGraph = JSON.parse(json);
+    if (value.length > 0) {
+      this.latestMsgIndex++;
+      this.msgInput.nativeElement.value = ''; // clear input message
+      this.addUserMessage(value);
 
-        this.dashboard.updateGraph(newGraph);
+      this.chatGPT.getFakeGPTQuery(value).subscribe((res) => {
+        if (res.includes('{') && res.includes('}')) {
+          const firstIndex = res.indexOf('{');
+          const lastIndex = res.lastIndexOf('}');
+          const json = res.substring(firstIndex, lastIndex + 1);
+          const newGraph = JSON.parse(json);
 
-        res =
-          res.substring(0, firstIndex) +
-          res.substring(lastIndex + 1, res.length);
-      }
+          this.dashboard.updateGraph(newGraph);
 
-      this.addAIMessage(res);
-    });
+          res =
+            res.substring(0, firstIndex) +
+            res.substring(lastIndex + 1, res.length);
+        }
+
+        this.addAIMessage(res);
+      });
+    }
   }
   constructor(
     private chatGPT: OpenAiService,
