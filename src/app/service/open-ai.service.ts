@@ -8,7 +8,7 @@ import { somedummy } from '../dummyData';
 })
 export class OpenAiService {
   openai: any = new OpenAI({
-    apiKey: '',
+    apiKey: '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',
     dangerouslyAllowBrowser: true,
   });
 

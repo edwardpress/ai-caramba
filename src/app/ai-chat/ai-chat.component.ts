@@ -5,6 +5,7 @@ import { FabComponent } from '@syncfusion/ej2-angular-buttons';
 import { ListViewComponent } from '@syncfusion/ej2-angular-lists';
 import { OpenAiService } from '../service/open-ai.service';
 import { DashboardDataService } from '../service/dashboard-data.service';
+import { finalData } from '../dummyData';
 
 @Component({
   selector: 'app-ai-chat',
@@ -57,11 +58,12 @@ export class AiChatComponent {
           const json = res.substring(firstIndex, lastIndex + 1);
           try {
             const newGraph = JSON.parse(json);
+            newGraph.chartSetting["dataSource"] = finalData;
             this.dashboard.updateGraph(newGraph);
-  
-            res =
-              res.substring(0, firstIndex) +
-              res.substring(lastIndex + 1, res.length);
+            res = "Here is an analytics dashboard of " + newGraph.description;
+            // res =
+            //   res.substring(0, firstIndex) +
+            //   res.substring(lastIndex + 1, res.length);
           } catch (SyntaxError) {
             res = "Sorry, I didn't understand";
           }
