@@ -58,7 +58,16 @@ export class AiChatComponent {
           const json = res.substring(firstIndex, lastIndex + 1);
           try {
             const newGraph = JSON.parse(json);
-            newGraph.chartSetting["dataSource"] = finalData;
+            const sortedFinalData = finalData.sort(function(a,b){ 
+              if (a.Date < b.Date)
+                return 1;
+              else
+                return -1;
+            });
+            if (value.match(/date/i) || value.match(/time/i) ) {
+              newGraph.chartSetting.valueType = "DateTime"
+            };
+            newGraph.chartSetting["dataSource"] = sortedFinalData;
             this.dashboard.updateGraph(newGraph);
             res = "Here is an analytics dashboard of " + newGraph.description;
             // res =
