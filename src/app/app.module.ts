@@ -5,9 +5,10 @@ import { DashboardLayoutModule } from '@syncfusion/ej2-angular-layouts';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { ChartAllModule, AccumulationChartAllModule } from '@syncfusion/ej2-angular-charts';
 
 @NgModule({
-  imports:      [ BrowserModule,DashboardLayoutModule, RouterModule, CommonModule],
+  imports:      [ BrowserModule,DashboardLayoutModule, RouterModule, CommonModule,ChartAllModule, AccumulationChartAllModule],
   declarations: [ AppComponent, DashboardComponent],
   bootstrap:    [ AppComponent ]
 })
