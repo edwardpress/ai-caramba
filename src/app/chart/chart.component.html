@@ -1,35 +1,58 @@
-<ejs-chart
-  *ngIf="chartSetting.type !== 'Pie'"
-  height="200px"
-  [primaryXAxis]="chartSetting.xAxis"
-  [zoomSettings]="zoom"
->
-  <e-series-collection>
-    <e-series
-      [dataSource]="chartSetting.dataSource"
-      [type]="chartSetting.type"
-      [xName]="chartSetting.xName"
-      [yName]="chartSetting.yName"
-    >
-    </e-series>
-  </e-series-collection>
-</ejs-chart>
+<div [ngSwitch]="type">
+  <ejs-accumulationchart
+    *ngSwitchCase="'Pie'"
+    [enableAnimation]="true"
+    height="162px"
+  >
+    <e-accumulation-series-collection>
+      <e-accumulation-series
+        [dataSource]="chartSetting?.dataSource"
+        [xName]="chartSetting?.xName"
+        [yName]="chartSetting?.yName"
+        [radius]="chartSetting?.radius"
+        [name]="chartSetting?.name"
+        [dataLabel]="chartSetting?.dataLabel"
+        [innerRadius]="chartSetting?.innerRadius"
+      >
+      </e-accumulation-series>
+    </e-accumulation-series-collection>
+  </ejs-accumulationchart>
 
-<ejs-accumulationchart
-  *ngIf="chartSetting.type == 'Pie'"
-  [enableAnimation]="true"
-  height="162px"
->
-  <e-accumulation-series-collection>
-    <e-accumulation-series
-      [dataSource]="chartSetting.dataSource"
-      [xName]="chartSetting.xName"
-      [yName]="chartSetting.yName"
-      [radius]="chartSetting?.radius"
-      [name]="chartSetting.name"
-      [dataLabel]="chartSetting.dataLabel"
-      [innerRadius]="chartSetting?.innerRadius"
-    >
-    </e-accumulation-series>
-  </e-accumulation-series-collection>
-</ejs-accumulationchart>
+  <ejs-chart
+    *ngSwitchCase="'StackingLine'"
+    [primaryXAxis]="lineChartSetting?.xAxis"
+    [primaryYAxis]="lineChartSetting?.yAxis"
+    height="320px"
+  >
+    <e-series-collection>
+      <e-series
+        *ngFor="let line of lineChartSetting?.lineData"
+        [dataSource]="line.dataSource"
+        [type]="type"
+        [xName]="line.xName"
+        [yName]="line.yName"
+        [name]="line.name"
+        width="2"
+        [marker]="marker"
+        dashArray="5,1"
+      ></e-series>
+    </e-series-collection>
+  </ejs-chart>
+
+  <ejs-chart
+    *ngSwitchDefault
+    height="200px"
+    [primaryXAxis]="chartSetting?.xAxis"
+    [zoomSettings]="zoom"
+  >
+    <e-series-collection>
+      <e-series
+        [dataSource]="chartSetting?.dataSource"
+        [type]="type"
+        [xName]="chartSetting?.xName"
+        [yName]="chartSetting?.yName"
+      >
+      </e-series>
+    </e-series-collection>
+  </ejs-chart>
+</div>

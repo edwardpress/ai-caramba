@@ -18,7 +18,11 @@
           <div>{{ panel.title }}</div>
         </ng-template>
         <ng-template #content>
-          <app-chart [chartSetting]="panel.chartSetting"></app-chart>
+          <app-chart
+            [type]="panel.type"
+            [chartSetting]="panel?.chartSetting"
+            [lineChartSetting]="panel?.lineChartSetting"
+          ></app-chart>
         </ng-template>
 
         <div>{{ panel.description }}</div>

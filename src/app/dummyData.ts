@@ -37,14 +37,71 @@ export let barData: Object[] = [
   { x: 2011, y: 9.8 },
 ];
 
+export let data0: Object[] = [
+  { x: 'Food', y: 90 },
+  { x: 'Transport', y: 80 },
+  { x: 'Medical', y: 50 },
+  { x: 'Clothes', y: 70 },
+  { x: 'Personal Care', y: 30 },
+  { x: 'Books', y: 10 },
+  { x: 'Fitness', y: 100 },
+  { x: 'Electricity', y: 55 },
+  { x: 'Tax', y: 20 },
+  { x: 'Pet Care', y: 40 },
+  { x: 'Education', y: 45 },
+  { x: 'Entertainment', y: 75 },
+];
+export let data1: Object[] = [
+  { x: 'Food', y: 40 },
+  { x: 'Transport', y: 90 },
+  { x: 'Medical', y: 80 },
+  { x: 'Clothes', y: 30 },
+  { x: 'Personal Care', y: 80 },
+  { x: 'Books', y: 40 },
+  { x: 'Fitness', y: 30 },
+  { x: 'Electricity', y: 95 },
+  { x: 'Tax', y: 50 },
+  { x: 'Pet Care', y: 20 },
+  { x: 'Education', y: 15 },
+  { x: 'Entertainment', y: 45 },
+];
+export let data2: Object[] = [
+  { x: 'Food', y: 70 },
+  { x: 'Transport', y: 110 },
+  { x: 'Medical', y: 120 },
+  { x: 'Clothes', y: 60 },
+  { x: 'Personal Care', y: 80 },
+  { x: 'Books', y: 30 },
+  { x: 'Fitness', y: 70 },
+  { x: 'Electricity', y: 55 },
+  { x: 'Tax', y: 40 },
+  { x: 'Pet Care', y: 80 },
+  { x: 'Education', y: 45 },
+  { x: 'Entertainment', y: 65 },
+];
+export let data3: Object[] = [
+  { x: 'Food', y: 120 },
+  { x: 'Transport', y: 70 },
+  { x: 'Medical', y: 50 },
+  { x: 'Clothes', y: 180 },
+  { x: 'Personal Care', y: 30 },
+  { x: 'Books', y: 270 },
+  { x: 'Fitness', y: 40 },
+  { x: 'Electricity', y: 75 },
+  { x: 'Tax', y: 65 },
+  { x: 'Pet Care', y: 95 },
+  { x: 'Education', y: 135 },
+  { x: 'Entertainment', y: 115 },
+];
+
 export const sampleData: panelData[] = [
   {
     title: 'Bar',
+    type: 'Bar',
     chartSetting: {
       dataSource: barData,
       xName: 'x',
       yName: 'y',
-      type: 'Bar',
       xAxis: {
         valueType: 'Category',
       },
@@ -55,11 +112,11 @@ export const sampleData: panelData[] = [
   },
   {
     title: 'Line',
+    type: 'Line',
     chartSetting: {
       dataSource: lineData,
       xName: 'x',
       yName: 'y',
-      type: 'Line',
       xAxis: {
         valueType: 'Category',
       },
@@ -71,11 +128,11 @@ export const sampleData: panelData[] = [
 
   {
     title: 'Pie',
+    type: 'Pie',
     chartSetting: {
       dataSource: piechart1,
       xName: 'x',
       yName: 'y',
-      type: 'Pie',
       xAxis: {
         valueType: 'Category',
       },
@@ -87,11 +144,11 @@ export const sampleData: panelData[] = [
   },
   {
     title: 'Pie 2',
+    type: 'Pie',
     chartSetting: {
       dataSource: piechart,
       xName: 'x',
       yName: 'y',
-      type: 'Pie',
       xAxis: {
         valueType: 'Category',
       },
@@ -101,4 +158,57 @@ export const sampleData: panelData[] = [
     row: 1,
     col: 3,
   },
+
+  {
+    title: 'Multi Line',
+    type: 'StackingLine',
+    description: 'Pie Data',
+    row: 2,
+    col: 0,
+    sizeX: 6,
+    lineChartSetting: {
+      xAxis: { interval: 1, valueType: 'Category' },
+      yAxis: {
+        title: 'Expense',
+        interval: 100,
+        labelFormat: '${value}',
+      },
+      lineData: [
+        {
+          dataSource: data0,
+          xName: 'x',
+          yName: 'y',
+          name: 'Peter',
+        },
+        {
+          dataSource: data1,
+          xName: 'x',
+          yName: 'y',
+          name: 'Jon',
+        },
+        {
+          dataSource: data2,
+          xName: 'x',
+          yName: 'y',
+          name: 'Lance',
+        },
+        {
+          dataSource: data3,
+          xName: 'x',
+          yName: 'y',
+          name: 'Lim',
+        },
+      ],
+    },
+  },
 ];
+
+// this.primaryXAxis = {
+//   interval: 1, valueType: 'Category'
+// };
+// this.primaryYAxis =
+// {
+//   title: 'Expense',
+//   interval: 100,
+//   labelFormat: '${value}',
+// },

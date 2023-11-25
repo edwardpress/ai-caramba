@@ -11,6 +11,7 @@ import { FabModule } from '@syncfusion/ej2-angular-buttons';
 import {
   ChartAllModule,
   AccumulationChartAllModule,
+  StackingLineSeriesService,
 } from '@syncfusion/ej2-angular-charts';
 import { ChartComponent } from './chart/chart.component';
 import {
@@ -42,6 +43,7 @@ import {
     TooltipService,
     DataLabelService,
     LineSeriesService,
+    StackingLineSeriesService,
   ],
 })
 export class AppModule {}

@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { chartSetting } from '../model/chartModel';
+import { data0, data1, data2, data3 } from '../dummyData';
+
+import { chartSetting, lineChartSetting } from '../model/chartModel';
 
 @Component({
   selector: 'app-chart',
@@ -8,9 +9,12 @@ import { chartSetting } from '../model/chartModel';
   styleUrl: './chart.component.scss',
 })
 export class ChartComponent {
-  @Input() chartSetting!: chartSetting;
+  @Input() chartSetting?: chartSetting;
+  @Input() type!: string;
+  @Input() lineChartSetting?: lineChartSetting;
 
   public zoom?: Object;
+  marker = { visible: true };
 
   ngOnInit() {
     this.zoom = {
