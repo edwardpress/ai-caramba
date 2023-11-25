@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { TextBoxComponent } from '@syncfusion/ej2-angular-inputs';
 import { FabComponent } from '@syncfusion/ej2-angular-buttons';
 import { ListViewComponent } from '@syncfusion/ej2-angular-lists';
+import { OpenAiService } from '../service/open-ai.service';
 
 @Component({
   selector: 'app-ai-chat',
@@ -34,11 +35,15 @@ export class AiChatComponent {
   @ViewChild('message_input') public msgInput!: any;
   public btnClick() {
     let value = this.msgInput.nativeElement.value;
-    this.msgList.addItem([{ text: "You", contact: value, id: this.latestMsgIndex, chat: "receiver" }]);
-    this.latestMsgIndex;
-    this.msgInput.nativeElement.value = "";
+    this.chatGPT.getQuery(value).subscribe((res)=>{
+      console.log('GPT RESPONSE', res);
+      this.latestMsgIndex;
+      this.msgInput.nativeElement.value = "";
+    })
+    // this.msgList.addItem([{ text: "You", contact: value, id: this.latestMsgIndex, chat: "receiver" }]);
+    
   };
-  constructor() { 
+  constructor(private chatGPT: OpenAiService) { 
 
   }
 }
