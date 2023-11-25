@@ -7,77 +7,22 @@
     [cellSpacing]="cellSpacing"
   >
     <e-panels>
-      <e-panel [sizeX]="3" [sizeY]="1" [row]="0" [col]="0">
+      <e-panel
+        *ngFor="let panel of samplePanels"
+        [sizeX]="panel.sizeX ? panel.sizeX : 3"
+        [sizeY]="panel.sizeY ? panel.sizeY : 1"
+        [row]="panel.row"
+        [col]="panel.col"
+      >
         <ng-template #header>
-          <div>Product usage ratio</div>
+          <div>{{ panel.title }}</div>
         </ng-template>
         <ng-template #content>
-          <div id="column">
-            <app-chart
-              [xAxis]="primaryXAxis"
-              xName="x"
-              yName="y"
-              [dataSource]="barData"
-              type="Bar"
-            ></app-chart>
-          </div>
+          <app-chart [chartSetting]="panel.chartSetting"></app-chart>
         </ng-template>
-      </e-panel>
-      <e-panel [sizeX]="3" [sizeY]="1" [row]="0" [col]="3">
-        <ng-template #header>
-          <div>Last year Sales Comparison</div>
-        </ng-template>
-        <ng-template #content>
-          <div id="line">
-            <app-chart
-              [xAxis]="primaryXAxis"
-              xName="x"
-              yName="y"
-              [dataSource]="lineData"
-              type="Line"
-            ></app-chart>
-          </div>
-        </ng-template>
-      </e-panel>
-      <e-panel [sizeX]="3" [sizeY]="1" [row]="0" [col]="3">
-        <ng-template #header>
-          <div>Sales increase percentage 1</div>
-        </ng-template>
-        <ng-template #content>
-          <div id="pie">
-            <app-chart
-              [xAxis]="primaryXAxis"
-              xName="x"
-              yName="y"
-              [dataSource]="pieChart"
-              [legendSettings]="legendSettings"
-              innerRadius="20%"
-              name="Browser"
-              type="Pie"
-              [dataLabel]="datalabel"
-            ></app-chart>
-          </div>
-        </ng-template>
-      </e-panel>
-      <e-panel [sizeX]="3" [sizeY]="1" [row]="1" [col]="0">
-        <ng-template #header>
-          <div>Sales increase percentage 2</div>
-        </ng-template>
-        <ng-template #content>
-          <app-chart
-            [xAxis]="primaryXAxis"
-            xName="x"
-            yName="y"
-            [dataSource]="pieChart1"
-            [legendSettings]="legendSettings"
-            innerRadius="20%"
-            name="Browser"
-            type="Pie"
-            [dataLabel]="datalabel"
-          ></app-chart>
-        </ng-template>
+
+        <div>{{ panel.description }}</div>
       </e-panel>
     </e-panels>
   </ejs-dashboardlayout>
 </div>
-`,
