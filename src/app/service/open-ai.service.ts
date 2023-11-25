@@ -30,7 +30,7 @@ export class OpenAiService {
     );
   }
 
-  getFakeGPTQuery() {
+  getFakeGPTQuery(msg: string) {
     return of(
       'BRO THIS IS FROM CHATGPT SCHEMA MAN ' +
         JSON.stringify(somedummy) +

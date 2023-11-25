@@ -11,6 +11,7 @@ import {
   barData,
   sampleData,
 } from '../dummyData';
+import { DashboardDataService } from '../service/dashboard-data.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -23,10 +24,13 @@ export class DashboardComponent {
   pieChart: any[] = piechart;
   pieChart1: any[] = piechart1;
   barData: any[] = barData;
-  samplePanels = sampleData;
+  // samplePanels = sampleData;
+  panels: any[] = [];
   primaryXAxis: Object = {
     valueType: 'Category',
   };
+
+  constructor(private dashboardData: DashboardDataService) {}
 
   public cellSpacing: number[] = [10, 10];
 
@@ -37,4 +41,15 @@ export class DashboardComponent {
   datalabel: any;
 
   chartParameter = [{}];
+
+  ngOnInit() {
+    this.dashboardData.getCurrentGraph.subscribe((res) => {
+      console.log('res', res);
+      this.panels = res;
+    });
+  }
+
+  deleteDashboard(index: number) {
+    this.dashboardData.deleteGraph(index);
+  }
 }

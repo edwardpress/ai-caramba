@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { OpenAiService } from './service/open-ai.service';
+import { DashboardDataService } from './service/dashboard-data.service';
+import { sampleData } from './dummyData';
 
 @Component({
   selector: 'app-root',
@@ -9,22 +11,12 @@ import { OpenAiService } from './service/open-ai.service';
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  constructor(private chatGPT: OpenAiService) {}
-
-  title = 'ai-caramba-dashboard';
-
-  ngOnInit() {
-    this.chatGPT
-      .getQuery(
-        'Can you say "hello world"?'
-      )
-      .subscribe((res) => {
-        console.log('GPT RESPONSE', res);
-
-        // JSON schema, the type of graph to use
-        // put into graph
-        // switch (graph type) get appropirate dummyData 
-
-      });
+  constructor(
+    private chatGPT: OpenAiService,
+    private dashboardData: DashboardDataService
+  ) {
+    const userBalance = sampleData[0];
+    console;
+    this.dashboardData.updateGraph(userBalance);
   }
 }
