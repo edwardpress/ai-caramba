@@ -1,6 +1,7 @@
-<div class="control-section">
+<div class="control-section" *ngIf="panels.length > 0">
+  <div class="summary">Your Saved Analytics</div>
+
   <ejs-dashboardlayout
-    *ngIf="panels.length > 0"
     [allowResizing]="true"
     [allowDragging]="true"
     [columns]="6"
@@ -36,15 +37,55 @@
       </e-panel>
     </e-panels>
   </ejs-dashboardlayout>
+</div>
 
-  <div *ngIf="panels.length == 0">
-    <div class="container">
-      <span class="placeholderText">
-        Talk to our AI for customized dashboard for your need &nbsp;
-        <div>
-          <mat-icon class="iconSize" fontIcon="account_tree"></mat-icon>
-        </div>
-      </span>
-    </div>
+<div *ngIf="panels.length == 0">
+  <div class="container">
+    <span class="placeholderText">
+      Talk to our AI for customized dashboard for your need &nbsp;
+      <div>
+        <mat-icon class="iconSize" fontIcon="account_tree"></mat-icon>
+      </div>
+    </span>
   </div>
+</div>
+
+<div class="control-section">
+  <div class="summary">User Summary To Date</div>
+  <ejs-dashboardlayout
+    [allowResizing]="true"
+    [allowDragging]="true"
+    [columns]="6"
+    #editLayout
+    [cellSpacing]="cellSpacing"
+  >
+    <e-panels>
+      <e-panel
+        *ngFor="let panel of samplePanels; index as i"
+        [sizeX]="panel.sizeX ? panel.sizeX : 3"
+        [sizeY]="panel.sizeY ? panel.sizeY : 1"
+        [row]="panel.row"
+        [col]="panel.col"
+      >
+        <ng-template #header>
+          <div style="text-align: center; font-weight: bold; font-size: 16px">
+            {{ panel.title }}
+
+            <button ejs-button class="delete" (click)="deleteDashboard(i)">
+              <mat-icon fontIcon="delete"></mat-icon>
+            </button>
+          </div>
+        </ng-template>
+        <ng-template #content>
+          <app-chart
+            [type]="panel.type"
+            [chartSetting]="panel?.chartSetting"
+            [lineChartSetting]="panel?.lineChartSetting"
+          ></app-chart>
+        </ng-template>
+
+        <div style="text-align: center">{{ panel.description }}</div>
+      </e-panel>
+    </e-panels>
+  </ejs-dashboardlayout>
 </div>

@@ -24,7 +24,7 @@ export class DashboardComponent {
   pieChart: any[] = piechart;
   pieChart1: any[] = piechart1;
   barData: any[] = barData;
-  // samplePanels = sampleData;
+  samplePanels = sampleData;
   panels: any[] = [];
   primaryXAxis: Object = {
     valueType: 'Category',
