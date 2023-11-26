@@ -11,12 +11,17 @@
   </div>
 </div>
 
-<app-dashboard></app-dashboard>
+<app-dashboard ></app-dashboard>
 <router-outlet></router-outlet>
 
-<button class="aiChatButton" (click)="showChat()" ejs-fab id="fab">
+<button id="#step1" class="aiChatButton" (click)="showChat()" ejs-fab id="fab">
   <mat-icon style="scale: 1.5" fontIcon="account_tree"></mat-icon>
 </button>
+
+<div class="introPiece">
+
+</div>
+
 
 <ejs-dialog
   (overlayClick)="onOverlayClick()"

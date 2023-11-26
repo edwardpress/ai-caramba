@@ -12,6 +12,7 @@ import {
   sampleData,
 } from '../dummyData';
 import { DashboardDataService } from '../service/dashboard-data.service';
+import { IntroJSService } from '../service/intro-js.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -30,7 +31,8 @@ export class DashboardComponent {
     valueType: 'Category',
   };
 
-  constructor(private dashboardData: DashboardDataService) {}
+  constructor(private dashboardData: DashboardDataService,     private introService: IntroJSService
+    ) {}
 
   public cellSpacing: number[] = [10, 10];
 
@@ -51,5 +53,9 @@ export class DashboardComponent {
 
   deleteDashboard(index: number) {
     this.dashboardData.deleteGraph(index);
+  }
+
+  highlightIntro(){
+    this.introService.featureOne()
   }
 }
