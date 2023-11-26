@@ -9,7 +9,18 @@ export class DashboardDataService {
   constructor() {}
 
   updateGraph(data: any) {
-    const updatedValue = [...this.currentGraphs.value, data];
+    let updatedValue = [...this.currentGraphs.value, data];
+
+    updatedValue = updatedValue.map((res, i) => {
+      return {
+        ...res,
+        row: Math.floor(i / 2),
+        col: i % 2 === 0 ? 0 : 3,
+      };
+    });
+
+    console.log('UV', updatedValue);
+
     this.currentGraphs.next(updatedValue);
   }
 

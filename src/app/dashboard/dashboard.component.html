@@ -16,7 +16,7 @@
         [col]="panel.col"
       >
         <ng-template #header>
-          <div>
+          <div style="text-align: center; font-weight: bold; font-size: 16px">
             {{ panel.title }}
 
             <button ejs-button class="delete" (click)="deleteDashboard(i)">
@@ -32,7 +32,7 @@
           ></app-chart>
         </ng-template>
 
-        <div>{{ panel.description }}</div>
+        <div style="text-align: center">{{ panel.description }}</div>
       </e-panel>
     </e-panels>
   </ejs-dashboardlayout>
