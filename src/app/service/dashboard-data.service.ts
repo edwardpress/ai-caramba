@@ -19,14 +19,21 @@ export class DashboardDataService {
       };
     });
 
-    console.log('UV', updatedValue);
-
     this.currentGraphs.next(updatedValue);
   }
 
   deleteGraph(index: number) {
     const currentGraphs = this.currentGraphs.value as any[];
-    const newValue = currentGraphs.filter((res, i) => i != index);
+    let newValue = currentGraphs.filter((res, i) => i != index);
+
+    newValue = newValue.map((res, i) => {
+      return {
+        ...res,
+        row: Math.floor(i / 2),
+        col: i % 2 === 0 ? 0 : 3,
+      };
+    });
+
     this.currentGraphs.next(newValue);
   }
 
