@@ -1,5 +1,6 @@
 <div class="control-section">
   <ejs-dashboardlayout
+    *ngIf="panels.length > 0"
     [allowResizing]="true"
     [allowDragging]="true"
     [columns]="6"
@@ -35,4 +36,15 @@
       </e-panel>
     </e-panels>
   </ejs-dashboardlayout>
+
+  <div *ngIf="panels.length == 0">
+    <div class="container">
+      <span class="placeholderText">
+        Talk to our AI for customized dashboard for your need &nbsp;
+        <div>
+          <mat-icon class="iconSize" fontIcon="account_tree"></mat-icon>
+        </div>
+      </span>
+    </div>
+  </div>
 </div>

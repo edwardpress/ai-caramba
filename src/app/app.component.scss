@@ -1,0 +1,31 @@
+.navBar {
+  width: 100%;
+  background-color: black;
+  height: 60px;
+}
+
+.menuLogo {
+  box-sizing: border-box;
+  color: white;
+  height: 100%;
+  align-items: center;
+  padding-left: 36px;
+  display: flex;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.iconSize {
+  scale: 1.7;
+}
+
+.restMenu {
+  color: white;
+  margin-left: auto;
+  padding-right: 36px;
+}
+
+.aiChatButton {
+  height: 80px;
+  width: 80px;
+}

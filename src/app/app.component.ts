@@ -18,7 +18,7 @@ export class AppComponent {
     private dashboardData: DashboardDataService
   ) {
     const userBalance = sampleData[0];
-    this.dashboardData.updateGraph(userBalance);
+    // this.dashboardData.updateGraph(userBalance);
   }
 
   @ViewChild('ejDialog') ejDialog: DialogComponent | any;

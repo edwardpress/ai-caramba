@@ -61,3 +61,28 @@ body.tailwind-dark .e-dashboardlayout.e-control .e-panel {
   background: transparent;
   float: right;
 }
+
+.container {
+  height: 50vh;
+  border: 0.5px solid gainsboro;
+  border-radius: 8px; /* Optional: Add border-radius for rounded corners */
+}
+
+.placeholderText {
+  font-size: 36px;
+  text-align: center;
+  color: #c0c0c0;
+  display: block;
+  line-height: 20vh;
+}
+
+.iconSize {
+  scale: 5;
+  line-height: normal;
+}
+
+.menuButton {
+  font-weight: bold;
+  padding-left: 16px;
+  padding-right: 16px;
+}

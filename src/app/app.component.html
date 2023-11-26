@@ -1,8 +1,21 @@
+<div class="navBar">
+  <div class="menuLogo">
+    <mat-icon class="iconSize" fontIcon="account_tree"></mat-icon>
+    <span style="padding-left: 20px"
+      >AI CARAMBA - Your Friendly Dashboard AI</span
+    >
+    <div class="restMenu">
+      <span class="menuButton">PRODUCTS</span>
+      <span class="menuButton">PRICING</span>
+    </div>
+  </div>
+</div>
+
 <app-dashboard></app-dashboard>
 <router-outlet></router-outlet>
 
-<button (click)="showChat()" ejs-fab id="fab">
-  <mat-icon fontIcon="account_tree"></mat-icon>
+<button class="aiChatButton" (click)="showChat()" ejs-fab id="fab">
+  <mat-icon style="scale: 1.5" fontIcon="account_tree"></mat-icon>
 </button>
 
 <ejs-dialog
@@ -11,7 +24,7 @@
   *ngIf="showDialog"
   id="dialog"
   #ejDialog
-  [showCloseIcon]="true"
+  [showCloseIcon]="false"
   [target]="targetElement"
   width="400px"
   header="AI Caramba"

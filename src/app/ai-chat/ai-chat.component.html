@@ -20,7 +20,9 @@
     <ng-template #senderTemplate>
       <div class="dialogContainer">
         <div id="content">
-          <div class="name">{{ data.text }}</div>
+          <div class="name" style="text-align: right; padding-right: 8px">
+            {{ data.text }}
+          </div>
           <div id="info">{{ data.contact }}</div>
         </div>
 
@@ -35,14 +37,14 @@
 
     <ng-template #receiverTemplate>
       <div class="dialogContainer">
-        <div id="image" *ngIf="data.avatar != ''">
+        <!-- <div id="image" *ngIf="data.avatar != ''">
           <span class="e-avatar img1 e-avatar-circle"></span>
         </div>
         <div id="image" *ngIf="data.avatar == ''">
           <span class="img1 e-avatar e-avatar-circle">
-            <img src="./robot.jpg" />
           </span>
-        </div>
+        </div> -->
+        <mat-icon fontIcon="account_tree"></mat-icon>
 
         <div id="content1">
           <div class="name1">{{ data.text }}</div>
