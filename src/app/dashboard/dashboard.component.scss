@@ -63,7 +63,7 @@ body.tailwind-dark .e-dashboardlayout.e-control .e-panel {
 }
 
 .container {
-  height: 50vh;
+  height: 60vh;
   border: 0.5px solid gainsboro;
   border-radius: 8px; /* Optional: Add border-radius for rounded corners */
 }
@@ -99,4 +99,8 @@ body.tailwind-dark .e-dashboardlayout.e-control .e-panel {
   font-weight: 600;
   font-size: 24px;
   text-align: center;
+}
+
+.introButton{
+text-align: center;  
 }

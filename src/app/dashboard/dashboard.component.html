@@ -40,12 +40,13 @@
 </div>
 
 <div *ngIf="panels.length == 0">
-  <div class="container">
+  <div class="container emptyDash">
     <span class="placeholderText">
       Talk to our AI for customized dashboard for your need &nbsp;
       <div>
         <mat-icon class="iconSize" fontIcon="account_tree"></mat-icon>
       </div>
+      <button class="introButton" (click)="highlightIntro()" ejs-button>How to start?</button>
     </span>
   </div>
 </div>
