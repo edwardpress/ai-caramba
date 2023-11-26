@@ -20,12 +20,12 @@ export const piechart: any[] = [
 ];
 
 export const piechart1: any[] = [
-  { x: 'Chrome', y: 37, text: '37%' },
-  { x: 'UC Browser', y: 17, text: '17%' },
-  { x: 'iPhone', y: 19, text: '19%' },
+  { x: 'Property', y: 37, text: '37%' },
+  { x: 'REIT', y: 17, text: '17%' },
+  { x: 'Mutual Fund', y: 19, text: '19%' },
   { x: 'Others', y: 4, text: '4%' },
-  { x: 'Opera', y: 11, text: '11%' },
-  { x: 'Android', y: 12, text: '12%' },
+  { x: 'Fixed Deposit', y: 11, text: '11%' },
+  { x: 'Crypto', y: 12, text: '12%' },
 ];
 
 export let barData: Object[] = [
@@ -96,7 +96,7 @@ export let data3: Object[] = [
 
 export const sampleData: panelData[] = [
   {
-    title: 'Bar',
+    title: 'Total Spending By Year',
     type: 'Bar',
     chartSetting: {
       dataSource: barData,
@@ -110,24 +110,24 @@ export const sampleData: panelData[] = [
     row: 0,
     col: 0,
   },
-  {
-    title: 'Line',
-    type: 'Line',
-    chartSetting: {
-      dataSource: lineData,
-      xName: 'x',
-      yName: 'y',
-      xAxis: {
-        valueType: 'Category',
-      },
-    },
-    description: 'Line Data',
-    row: 0,
-    col: 3,
-  },
+//   {
+//     title: 'Line',
+//     type: 'Line',
+//     chartSetting: {
+//       dataSource: lineData,
+//       xName: 'x',
+//       yName: 'y',
+//       xAxis: {
+//         valueType: 'Category',
+//       },
+//     },
+//     description: 'Line Data',
+//     row: 0,
+//     col: 3,
+//   },
 
   {
-    title: 'Pie',
+    title: 'Investment Portfolio',
     type: 'Pie',
     chartSetting: {
       dataSource: piechart1,
@@ -139,68 +139,68 @@ export const sampleData: panelData[] = [
       innerRadius: '20%',
     },
     description: 'Pie Data',
-    row: 1,
-    col: 0,
-  },
-  {
-    title: 'Pie 2',
-    type: 'Pie',
-    chartSetting: {
-      dataSource: piechart,
-      xName: 'x',
-      yName: 'y',
-      xAxis: {
-        valueType: 'Category',
-      },
-      radius: '70%',
-    },
-    description: 'Pie Data',
-    row: 1,
+    row: 0,
     col: 3,
   },
+//   {
+//     title: 'Pie 2',
+//     type: 'Pie',
+//     chartSetting: {
+//       dataSource: piechart,
+//       xName: 'x',
+//       yName: 'y',
+//       xAxis: {
+//         valueType: 'Category',
+//       },
+//       radius: '70%',
+//     },
+//     description: 'Pie Data',
+//     row: 1,
+//     col: 3,
+//   },
 
-  {
-    title: 'Multi Line',
-    type: 'StackingLine',
-    description: 'Pie Data',
-    row: 2,
-    col: 0,
-    sizeX: 6,
-    lineChartSetting: {
-      xAxis: { interval: 1, valueType: 'Category' },
-      yAxis: {
-        title: 'Expense',
-        interval: 100,
-        labelFormat: '${value}',
-      },
-      lineData: [
-        {
-          dataSource: data0,
-          xName: 'x',
-          yName: 'y',
-          name: 'Peter',
-        },
-        {
-          dataSource: data1,
-          xName: 'x',
-          yName: 'y',
-          name: 'Jon',
-        },
-        {
-          dataSource: data2,
-          xName: 'x',
-          yName: 'y',
-          name: 'Lance',
-        },
-        {
-          dataSource: data3,
-          xName: 'x',
-          yName: 'y',
-          name: 'Lim',
-        },
-      ],
-    },
-  },
+//   {
+//     title: 'Multi Line',
+//     type: 'StackingLine',
+//     description: 'Pie Data',
+//     row: 2,
+//     col: 0,
+//     sizeX: 6,
+//     lineChartSetting: {
+//       xAxis: { interval: 1, valueType: 'Category' },
+//       yAxis: {
+//         title: 'Expense',
+//         interval: 100,
+//         labelFormat: '${value}',
+//       },
+//       lineData: [
+//         {
+//           dataSource: data0,
+//           xName: 'x',
+//           yName: 'y',
+//           name: 'Peter',
+//         },
+//         {
+//           dataSource: data1,
+//           xName: 'x',
+//           yName: 'y',
+//           name: 'Jon',
+//         },
+//         {
+//           dataSource: data2,
+//           xName: 'x',
+//           yName: 'y',
+//           name: 'Lance',
+//         },
+//         {
+//           dataSource: data3,
+//           xName: 'x',
+//           yName: 'y',
+//           name: 'Lim',
+//         },
+//       ],
+//     },
+//   },
 ];
 
 export const somedummy = {
